@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Start_Screen : MonoBehaviour
+public class SetSampleScene : MonoBehaviour
 {
     public Button startButton;
     // Start is called before the first frame update
