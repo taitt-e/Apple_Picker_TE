@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Basket : MonoBehaviour
 {
     public ScoreCounter scoreCounter;
+    public RoundCounter roundCounter;
 
     // Start is called before the first frame update
     void Start()
     {
         //Find a GameObject named ScoreCounter in the Scene Hierarchy
         GameObject scoreGO = GameObject.Find("ScoreCounter");
+        //Find a GameObject named RoundCounter in the scene Hierarchy
+        GameObject roundGO = GameObject.Find("RoundCounter");
         // Get the ScoreCounter (Script) component of scoreGO
         scoreCounter = scoreGO.GetComponent<ScoreCounter>();
+        //Get the RoundCounter (Script) component of roundGO
+        roundCounter = roundGO.GetComponent<RoundCounter>();
     }
 
     // Update is called once per frame
@@ -45,6 +51,17 @@ public class Basket : MonoBehaviour
             // Increase the score
             scoreCounter.score += 100;
             HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
+            //Set round to modulo 200 of scoreCounter + 1. If it is 5, end the game.
+            int temp = scoreCounter.score % 200;
+            switch (temp)
+            {
+                case 5:
+                    SceneManager.LoadScene("GameoverScene");
+                    break;
+                default:
+                    roundCounter.round = temp + 1;
+                    break;
+            }
         }
     }
 }
