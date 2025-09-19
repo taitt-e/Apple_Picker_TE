@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class SetSampleScene : MonoBehaviour
 {
-    public Button startButton;
+    public Button setButton;
     // Start is called before the first frame update
     void Start()
     {
-        Button btn = startButton.GetComponent<Button>();
+        Button btn = setButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
 
