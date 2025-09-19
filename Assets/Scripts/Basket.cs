@@ -52,14 +52,16 @@ public class Basket : MonoBehaviour
             scoreCounter.score += 100;
             HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
             //Set round to modulo 200 of scoreCounter + 1. If it is 5, end the game.
-            int temp = scoreCounter.score % 200;
+            //To increase/decrease the length of rounds, change the divisor number
+            int temp = scoreCounter.score / 400 + 1;
+            //Use a switch for faster processing
             switch (temp)
             {
                 case 5:
                     SceneManager.LoadScene("GameoverScene");
                     break;
                 default:
-                    roundCounter.round = temp + 1;
+                    roundCounter.round = temp;
                     break;
             }
         }
