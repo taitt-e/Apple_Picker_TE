@@ -7,6 +7,8 @@ public class AppleTree : MonoBehaviour
     [Header("Inscribed")]
     // Prefab for instantiating apples
     public GameObject applePrefab;
+    //Prefab for instantiating branches
+    public GameObject branchPrefab;
     // Speed at which the AppleTree moves
     public float speed = 1f;
     // Distance where AppleTree turns around
@@ -23,8 +25,17 @@ public class AppleTree : MonoBehaviour
     }
     void DropApple()
     {
-        GameObject apple = Instantiate<GameObject>(applePrefab);
-        apple.transform.position = transform.position;
+        //Drop a Branch 20% of the time.
+        if (Random.Range(0f, 10f) < 8f)
+        {
+            GameObject apple = Instantiate<GameObject>(applePrefab);
+            apple.transform.position = transform.position;
+        }
+        else
+        {
+            GameObject branch = Instantiate<GameObject>(branchPrefab);
+            branch.transform.position = transform.position;
+        }
         Invoke("DropApple", appleDropDelay);
     }
 

@@ -64,10 +64,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applePrefab: {fileID: 4795213874514442918, guid: 95b71a235df44cc4dbc8b34b30a9a79c, type: 3}
+  branchPrefab: {fileID: 9203512791309755149, guid: 0f0982064e35694459662c6c0a1076a2, type: 3}
   speed: 5
   leftAndRightEdge: 24
   changeDirChance: 0.02
   appleDropDelay: 1
+  branchDropDelay: 4
 --- !u!1 &3211273725104229898
 GameObject:
   m_ObjectHideFlags: 0
